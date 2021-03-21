@@ -1,0 +1,45 @@
+# docker-compose.yml
+
+version: "3.7"
+services:
+  gluster-server-1:
+    hostname: ${HOSTNAME_1}
+    image: gluster/gluster-centos:gluster3u10_centos7
+    volumes:
+      - ${PWD}/volume/gluster-server-1/etc-glusterfs:/etc/glusterfs
+      - ${PWD}/volume/gluster-server-1/var-lib-glusterd:/var/lib/glusterd
+      - ${PWD}/volume/gluster-server-1/HDD1:/home/HDD1
+      - ${PWD}/volume/setup.sh:/setup.sh
+      - ${PWD}/.env:/.env
+    extra_hosts:
+      - ${HOSTNAME_1}:${IP_ADDR_1}
+      - ${HOSTNAME_2}:${IP_ADDR_2}
+    privileged: true
+    networks:
+      app_net:
+        ipv4_address: ${IP_ADDR_1}
+
+  gluster-server-2:
+    hostname: ${HOSTNAME_2}
+    image: gluster/gluster-centos:gluster3u10_centos7
+    volumes:
+      - ${PWD}/volume/gluster-server-2/etc-glusterfs:/etc/glusterfs
+      - ${PWD}/volume/gluster-server-2/var-lib-glusterd:/var/lib/glusterd
+      - ${PWD}/volume/gluster-server-2/HDD1:/home/HDD1
+    extra_hosts:
+      - ${HOSTNAME_1}:${IP_ADDR_1}
+      - ${HOSTNAME_2}:${IP_ADDR_2}
+    privileged: true
+    networks:
+      app_net:
+        ipv4_address: ${IP_ADDR_2}
+
+networks:
+  app_net:
+    name: app_net
+    driver: bridge
+    ipam:
+     driver: default
+     config:
+       - subnet: ${NETWORK_ADDR}
+

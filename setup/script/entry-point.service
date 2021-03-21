@@ -1,0 +1,10 @@
+[Unit]
+Description=Container Starting Script
+
+[Service]
+Type=oneshot
+ExecStart=/entry-point.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
