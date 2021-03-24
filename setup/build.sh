@@ -119,6 +119,11 @@ function main() {
   mv docker-compose.yml.deploy.tmp ../deploy/docker-compose.yml  
 
   echo ""; echo ""
+  # write docker image for deployment
+  echo "-- 6. write docker image for deployment  -------------"
+  docker image save -o ../deploy/portable-gluster.tar $IMAGE_NAME
+
+  echo ""; echo ""
   echo "-- build.sh ran --------------------------------------------"
   return 0
 }
