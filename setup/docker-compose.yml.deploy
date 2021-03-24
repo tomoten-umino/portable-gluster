@@ -1,0 +1,26 @@
+# docker-compose.yml
+
+version: "3.7"
+services:
+  gluster-server-1:
+    hostname: ${HOSTNAME_1}
+    image: ${IMAGE_NAME} 
+    volumes:
+      - ${PWD}/HDD1:/home/HDD1
+    extra_hosts:
+      - ${HOSTNAME_1}:${IP_ADDR_1}
+      - ${HOSTNAME_2}:${IP_ADDR_2}
+    privileged: true
+    network_mode: host
+
+  gluster-server-2:
+    hostname: ${HOSTNAME_2}
+    image: ${IMAGE_NAME} 
+    volumes:
+      - ${PWD}/HDD1:/home/HDD1
+    extra_hosts:
+      - ${HOSTNAME_1}:${IP_ADDR_1}
+      - ${HOSTNAME_2}:${IP_ADDR_2}
+    privileged: true
+    network_mode: host
+
