@@ -1,3 +1,4 @@
+# Portable Gluster
 This repository contains the tool to create the docker image of Glusterfs container with 2 replicas.
 
 ![Concept](https://github.com/tomoten-umino/portable-gluster/blob/images/DevelopmentAndDeployment.png)
@@ -5,11 +6,15 @@ This repository contains the tool to create the docker image of Glusterfs contai
 # Table of contents
 - [Dependancy](#dependency)
 - [Usage](#usage)
+  - [Directory-Structure](#directory-structure)
+  - [Setting](#setting)
+  - [Building](#building)
+  - [Deployment](#deployment)
 - [License](#license)
 
 # Dependency
 * This tool uses the following software.
-  * docker and docker Compose
+  * docker and docker-compose
   * bash
   * envsubst
 
