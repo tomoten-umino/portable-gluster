@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source .env
+source /.env
 
 # DEFINE
 TRUE="0"

@@ -7,6 +7,7 @@ services:
     image: ${IMAGE_NAME} 
     volumes:
       - ${PWD}/HDD1:/home/HDD1
+      - ${PWD}/log:/var/log/glusterfs
     extra_hosts:
       - ${HOSTNAME_1}:${IP_ADDR_1}
       - ${HOSTNAME_2}:${IP_ADDR_2}

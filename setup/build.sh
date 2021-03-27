@@ -108,7 +108,7 @@ function main() {
   export HOSTNAME_1=${HOSTNAME_1}
   export HOSTNAME_2=${HOSTNAME_2}
   export IP_ADDR_1=${IP_ADDR_1}
-  export IP_ADDR_2=${IP_ADDR_1}
+  export IP_ADDR_2=${IP_ADDR_2}
   export IMAGE_NAME=${IMAGE_NAME}
   envsubst '$HOSTNAME_1' < docker-compose.yml.deploy |
   envsubst '$HOSTNAME_2' |

@@ -2,6 +2,7 @@ FROM gluster/gluster-centos:gluster3u10_centos7
 
 COPY ./volume /tmp/volume
 COPY ./script /tmp/script
+COPY ./.env /.env
 
 RUN systemctl disable glusterd.service; systemctl disable gluster-setup.service; \
 mkdir -p /home/gluster; \
